@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101611" />
+  <title>Cornerstone — Fight Night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Cornerstone home"><span class="brand-mark">C<span>.</span></span><span class="brand-name">CORNERSTONE<small>BOXING CLUB</small></span></a>
+      <div class="top-center"><span class="live-dot"></span> FIGHT NIGHT <span class="slash">/</span> <span class="muted">THE UNDERCARD</span></div>
+      <div class="top-actions"><button id="soundBtn" class="icon-btn" aria-label="Toggle sound" title="Toggle sound">♪</button><button id="helpBtn" class="icon-btn" aria-label="Show controls" title="Controls">?</button><span class="edition">VOL. 01 <i></i> 2025</span></div>
+    </header>
+
+    <main class="page">
+      <section class="heading"><div><div class="eyebrow"><span></span> LIVE FROM THE GYM <span class="eyebrow-line"></span> EXHIBITION BOUT</div><h1>THE FIGHT <em>IS ON.</em></h1><p>Two fighters. One ring. Everything to prove.</p></div><div class="heading-right"><span class="star">✳</span><div><b>FRIDAY NIGHT FIGHTS</b><small>EST. 2025 &nbsp; / &nbsp; NO. 001</small></div></div></section>
+
+      <div class="layout">
+        <section class="fight-card" aria-label="Boxing match">
+          <div class="fight-top"><div><span class="label-dot"></span> <b>MAIN EVENT</b><span class="fight-top-sep">/</span> <span>HEAVYWEIGHT EXHIBITION</span></div><div class="fight-top-right"><span class="live-badge"><span></span> LIVE</span><button id="pauseBtn" class="text-btn">Ⅱ &nbsp; PAUSE</button></div></div>
+          <div class="arena" id="arena">
+            <canvas id="gameCanvas" aria-label="3D boxing ring"></canvas>
+            <div class="arena-shade"></div>
+            <div class="hud">
+              <div class="fighter-hud player-hud"><div class="fighter-title"><span class="corner-tag red">YOU</span><strong>MARCO <span>REYES</span></strong></div><div class="bar health"><i id="playerHealth"></i></div><div class="bar stamina"><i id="playerStamina"></i></div><div class="bar-labels"><span>HEALTH</span><span>STAMINA</span></div></div>
+              <div class="round-hud"><span>ROUND <b id="roundNumber">01</b> / 03</span><strong id="clock">1:30</strong><small>EXHIBITION</small></div>
+              <div class="fighter-hud opponent-hud"><div class="fighter-title"><strong>ISAIAH <span>COLE</span></strong><span class="corner-tag blue">CPU</span></div><div class="bar health"><i id="opponentHealth"></i></div><div class="bar stamina"><i id="opponentStamina"></i></div><div class="bar-labels"><span>STAMINA</span><span>HEALTH</span></div></div>
+            </div>
+            <div class="arena-caption"><span>●</span> RINGSIDE CAMERA <i></i> CAM 01</div>
+            <div id="fightMessage" class="fight-message"></div>
+            <div class="start-overlay" id="startOverlay"><div class="start-box"><div class="start-kicker">✳ &nbsp; THE RING IS YOURS &nbsp; ✳</div><h2>READY TO<br><em>FIGHT?</em></h2><p>Touch gloves. Find your rhythm.<br>Leave it all in the ring.</p><button id="startBtn" class="primary-btn">LET'S FIGHT <span>↗</span></button><small>3 ROUNDS &nbsp; / &nbsp; 90 SECONDS EACH</small></div></div>
+            <div id="resultOverlay" class="result-overlay hidden"><div class="result-box"><span class="eyebrow">THE FINAL BELL</span><h2 id="resultTitle">FIGHT OVER</h2><p id="resultDetail"></p><button id="restartBtn" class="primary-btn">FIGHT AGAIN <span>↗</span></button></div></div>
+            <div class="touch-layer" id="touchLayer"><div id="joystick" class="joystick"><div class="joystick-knob"></div><span>MOVE</span></div><div class="touch-actions"><button data-hold="block">BLOCK</button><button data-action="slip">SLIP</button><button data-hold="clinch">CLINCH</button><button data-action="cross" class="touch-punch">PUNCH</button></div><div class="swipe-hint">TAP OR SWIPE TO PUNCH</div></div>
+          </div>
+          <div class="fight-bottom"><div><span class="status-pulse"></span><b id="statusText">AWAITING FIRST BELL</b><span class="bottom-divider"></span><span id="modeLabel">EXHIBITION</span></div><span>BUILT FOR THE FIGHT <span class="gold">✳</span></span></div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="side-heading"><div><span class="section-number">01 / THE MATCHUP</span><h2>TALE OF <em>THE TAPE</em></h2></div><span class="side-star">✳</span></div>
+          <div class="matchup"><div class="match-fighter"><span class="fighter-index">RED CORNER</span><div class="portrait portrait-red"><span>MR</span><i>01</i></div><h3>MARCO<br><em>REYES</em></h3><p>THE PRESSURE</p><div class="fighter-meta"><span>YOU</span><b>ORTHODOX</b></div></div><div class="vs">VS</div><div class="match-fighter right"><span class="fighter-index">BLUE CORNER</span><div class="portrait portrait-blue"><span>IC</span><i>02</i></div><h3>ISAIAH<br><em>COLE</em></h3><p>THE COUNTER</p><div class="fighter-meta"><span>CPU</span><b>ORTHODOX</b></div></div></div>
+          <div class="tape-stats"><div><span>STYLE</span><b>PRESSURE</b><b>COUNTER</b></div><div><span>REACH</span><b>74 IN</b><b>76 IN</b></div><div><span>RECORD</span><b>12–0</b><b>14–2</b></div></div>
+          <div class="side-divider"></div>
+          <div class="tip"><span class="tip-icon">✳</span><div><b>THE CORNER SAYS</b><p>Keep your hands up and pick your shots. A tired fighter is an open fighter.</p></div></div>
+          <div class="side-footer"><span>THE SWEET SCIENCE</span><span>✦</span><span>EST. MMXXV</span></div>
+        </aside>
+      </div>
+
+      <section class="controls-card"><div class="controls-intro"><span class="section-number">02 / KNOW YOUR MOVES</span><h2>FIGHT <em>SMART.</em></h2><p>Master the basics, then make them yours.</p></div><div class="control-list"><div class="control-item"><span class="key-grid"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></span><div><b>FOOTWORK</b><small>Move around the ring</small></div></div><div class="control-item"><span class="key-pair"><kbd>J</kbd><kbd>K</kbd></span><div><b>STRAIGHT PUNCHES</b><small>Jab &amp; cross</small></div></div><div class="control-item"><span class="key-pair"><kbd>L</kbd><kbd>I</kbd></span><div><b>POWER SHOTS</b><small>Hook &amp; uppercut</small></div></div><div class="control-item"><span class="key-wide"><kbd>SHIFT</kbd></span><div><b>GUARD UP</b><small>Hold to block</small></div></div></div><button id="moreControls" class="more-controls">ALL CONTROLS <span>↗</span></button></section>
+      <footer><span>© 2025 CORNERSTONE BOXING CLUB</span><span>MADE FOR THE LOVE OF THE SPORT &nbsp; ✳</span><span>ROUND 01 / 03</span></footer>
+    </main>
+  </div>
+  <div id="helpModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><div class="modal-card"><button id="closeHelp" class="modal-close" aria-label="Close">×</button><span class="section-number">THE BASICS</span><h2 id="helpTitle">KNOW YOUR <em>MOVES.</em></h2><div class="help-grid"><div><b>DESKTOP</b><p>WASD / arrows — move<br>J / K — jab / cross<br>L / I — hook / uppercut<br>U / O — body / overhand<br>Shift — hold block<br>Space — slip &nbsp; · &nbsp; E — clinch</p></div><div><b>TOUCH</b><p>Drag the left stick to move.<br>Tap the ring to jab. Swipe up for an uppercut, sideways for a hook, or down for a body shot.<br>Use the buttons to block, slip, clinch or throw a cross.</p></div></div><button id="modalDone" class="primary-btn">GOT IT <span>↗</span></button></div></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
