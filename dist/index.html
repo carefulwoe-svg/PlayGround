@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#101210" />
+    <meta name="description" content="Cornerstone — a tactical, physics-minded boxing simulator." />
+    <title>CORNERSTONE — Boxing Simulator</title>
+    <script type="module" crossorigin src="/assets/index-CdeXJvnf.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz9ZjTNj.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="world"></div>
+      <div class="vignette"></div>
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Cornerstone home"><span class="brand-mark">C</span><span>CORNER<span class="brand-light">STONE</span><small>BOXING SIMULATOR</small></span></a>
+        <div class="event-pill"><span class="live-dot"></span><span>MAIN EVENT</span><i></i><b>10 ROUNDS · WELTERWEIGHT</b></div>
+        <button class="icon-button" id="soundToggle" aria-label="Toggle sound">♪</button>
+        <button class="icon-button" id="pauseButton" aria-label="Pause match">Ⅱ</button>
+      </header>
+      <main>
+        <section class="fight-hud" aria-label="Fight scoreboard">
+          <div class="fighter-card fighter-blue">
+            <div class="corner-tag"><span></span> BLUE CORNER</div>
+            <div class="fighter-name">MALIK <strong>REED</strong></div>
+            <div class="fighter-meta">THE TECHNICIAN <span>·</span> 24–2–0</div>
+            <div class="health-track"><div class="health-fill blue-health" id="playerHealth"></div></div>
+            <div class="bar-labels"><span>CONDITION</span><b id="playerHealthText">100%</b></div>
+            <div class="stamina-track"><div id="playerStamina" class="stamina-fill blue-stamina"></div></div>
+            <div class="bar-labels stamina-label"><span>GAS TANK</span><b id="playerStaminaText">100%</b></div>
+          </div>
+          <div class="round-panel"><span class="round-overline">ROUND</span><strong id="roundNumber">01</strong><div class="round-line"></div><span class="round-time" id="timer">3:00</span><span class="round-caption" id="roundStatus">ROUND IN PROGRESS</span></div>
+          <div class="fighter-card fighter-red">
+            <div class="corner-tag"><span></span> RED CORNER</div>
+            <div class="fighter-name">DANTE <strong>VALE</strong></div>
+            <div class="fighter-meta">THE PRESSURE <span>·</span> 19–1–1</div>
+            <div class="health-track"><div class="health-fill red-health" id="opponentHealth"></div></div>
+            <div class="bar-labels"><span>CONDITION</span><b id="opponentHealthText">100%</b></div>
+            <div class="stamina-track"><div id="opponentStamina" class="stamina-fill red-stamina"></div></div>
+            <div class="bar-labels stamina-label"><span>GAS TANK</span><b id="opponentStaminaText">100%</b></div>
+          </div>
+        </section>
+        <div class="fight-note" id="fightNote"><span class="note-icon">✦</span><span>CONTROL THE DISTANCE. PICK YOUR MOMENT.</span></div>
+        <section class="scorecard" id="scorecard" aria-live="polite"><div class="score-kicker">OFFICIAL SCORECARD</div><div class="score-main"><strong id="resultTitle">ROUND COMPLETE</strong><span id="resultBody">Take a breath. Your corner is ready.</span></div><div id="cornerTools" class="corner-tools"></div><div class="score-actions"><button class="primary-button" id="continueButton">CONTINUE <span>→</span></button><button class="text-button" id="restartButton">RESTART BOUT</button></div></section>
+        <aside class="coach-tip" id="coachTip"><span class="tip-dot"></span><span id="tipText">JAB TO MEASURE — <kbd>J</kbd></span></aside>
+        <div class="damage-flash" id="damageFlash"></div>
+      </main>
+      <nav class="fight-controls" aria-label="Fight controls">
+        <div class="movement-controls">
+          <div class="control-label"><span>FOOTWORK</span><small>MOVE · PIVOT · RESET</small></div>
+          <div class="move-row"><button class="move-button" data-move="left" aria-label="Move left">←</button><button class="move-button move-forward" data-move="forward" aria-label="Move forward">↑</button><button class="move-button" data-move="right" aria-label="Move right">→</button><button class="move-button" data-move="back" aria-label="Move back">↓</button></div>
+        </div>
+        <div class="action-controls">
+          <div class="control-label"><span>HANDS</span><small>READ · REACT · COUNTER</small></div>
+          <div class="action-row"><button class="fight-button jab" data-punch="jab"><span class="button-key">J</span><strong>JAB</strong><small>LEAD HAND</small></button><button class="fight-button cross" data-punch="cross"><span class="button-key">K</span><strong>CROSS</strong><small>REAR HAND</small></button><button class="fight-button hook" data-punch="hook"><span class="button-key">L</span><strong>HOOK</strong><small>LEAD HAND</small></button><button class="fight-button uppercut" data-punch="uppercut"><span class="button-key">I</span><strong>UPPERCUT</strong><small>BODY OR HEAD</small></button></div>
+        </div>
+        <div class="defense-controls"><div class="control-label"><span>DEFENSE</span><small>STAY COMPOSED</small></div><div class="defense-row"><button id="guardButton" class="guard-button"><span>G</span><strong>GUARD</strong></button><button id="dodgeButton" class="dodge-button"><span>SPACE</span><strong>SLIP</strong></button></div><button id="targetButton" class="target-button"><span class="target-indicator"></span> TARGET <strong id="targetLabel">HEAD</strong><span class="target-hint">T</span></button></div>
+        <div class="control-footer"><span><i>⌘</i> TACTICAL BOXING · NOT A BRAWL</span><span>ROUND <b id="footRound">01</b> <i>·</i> 10</span><button id="helpButton">CONTROLS <b>?</b></button></div>
+      </nav>
+      <div class="modal-backdrop" id="modalBackdrop">
+        <section class="intro-card" id="introCard"><div class="intro-top"><span class="eyebrow">A NEW STANDARD IN THE RING</span><span class="season-tag">SEASON 01 <i>·</i> 2025</span></div><div class="intro-title"><span>THE SWEET</span><strong>SCIENCE<span>.</span></strong></div><p>Every inch matters. Read the rhythm, manage your gas, and earn the opening.</p><div class="fight-preview"><div class="preview-fighter"><span class="preview-avatar blue-avatar">MR</span><span><b>MALIK REED</b><small>BLUE CORNER · TECHNICAL BOXER</small></span></div><span class="versus">VS</span><div class="preview-fighter preview-opponent"><span><b>DANTE VALE</b><small>RED CORNER · PRESSURE FIGHTER</small></span><span class="preview-avatar red-avatar">DV</span></div></div><div class="intro-bottom"><div class="rules-note"><span>◷</span><span><b>3 MINUTE ROUNDS</b><small>10 ROUNDS · 10-POINT MUST</small></span></div><button id="enterRing" class="enter-button">ENTER THE RING <span>→</span></button></div><div class="intro-foot"><span>DESIGNED FOR THE CRAFT</span><span>KEYBOARD <b>J K L I</b> · <b>G</b> GUARD · <b>SPACE</b> SLIP</span></div></section>
+      </div>
+      <div class="toast" id="toast"></div>
+    </div>
+  </body>
+</html>
